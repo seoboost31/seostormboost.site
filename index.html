@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEOStormBoost — Rankings That Strike Fast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --storm:#12141C;
+    --storm-2:#1B1E2B;
+    --cloud:#F4F2EC;
+    --volt:#F4D035;
+    --violet:#7C4DFF;
+    --violet-deep:#5A32D6;
+    --line:rgba(244,242,236,0.12);
+    --muted:#A7A9B8;
+    --display:'Anton', sans-serif;
+    --sans:'DM Sans', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--storm); color:var(--cloud); font-family:var(--sans); line-height:1.6; overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+
+  .static-bg{position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(124,77,255,0.16), transparent 45%),
+      radial-gradient(circle at 85% 25%, rgba(244,208,53,0.10), transparent 40%);
+  }
+
+  header{position:sticky; top:0; z-index:10; background:rgba(18,20,28,0.82); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);}
+  nav{display:flex; justify-content:space-between; align-items:center; padding:20px 0;}
+  .logo{font-family:var(--display); font-size:1.35rem; letter-spacing:0.01em; display:flex; align-items:center; gap:8px;}
+  .logo .bolt{color:var(--volt);}
+  .navlinks{display:flex; gap:30px; font-size:0.9rem; color:var(--muted); font-weight:500;}
+  .navlinks a:hover{color:var(--cloud);}
+  .btn-primary{background:var(--volt); color:var(--storm); padding:11px 22px; border-radius:4px; font-weight:700; font-size:0.86rem;}
+  .btn-primary:hover{background:#FFE066;}
+
+  .hero{padding:100px 0 40px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;}
+  .badge{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--violet); color:var(--violet); background:rgba(124,77,255,0.1); padding:7px 16px; border-radius:100px; font-family:var(--mono); font-size:0.75rem; margin-bottom:26px; text-transform:uppercase; letter-spacing:0.05em;}
+  h1{font-family:var(--display); font-weight:400; font-size:clamp(2.8rem,6vw,4.6rem); line-height:0.98; letter-spacing:0.005em; text-transform:uppercase; margin-bottom:26px;}
+  h1 .strike{color:var(--volt); display:block;}
+  .hero p{font-size:1.08rem; color:var(--muted); max-width:460px; margin-bottom:36px;}
+  .hero-ctas{display:flex; gap:14px; align-items:center;}
+  .btn-lg{background:var(--violet); color:#fff; padding:16px 30px; border-radius:6px; font-weight:700; font-size:0.95rem;}
+  .btn-lg:hover{background:var(--violet-deep);}
+  .link-arrow{font-weight:600; font-size:0.9rem; color:var(--cloud); border-bottom:2px solid var(--volt); padding-bottom:2px;}
+
+  .bolt-card{position:relative;}
+  .bolt-card svg{width:100%; height:auto;}
+
+  .band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--storm-2);}
+  .band-inner{display:grid; grid-template-columns:repeat(4,1fr); text-align:center;}
+  .band-item{padding:34px 20px; border-right:1px solid var(--line);}
+  .band-item:last-child{border-right:none;}
+  .band-item b{font-family:var(--display); font-size:2rem; font-weight:400; display:block; color:var(--volt);}
+  .band-item span{font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted);}
+
+  .section{padding:100px 0;}
+  .section-head{max-width:600px; margin-bottom:56px;}
+  .section-head .tag{font-family:var(--mono); color:var(--violet); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; display:block;}
+  .section-head h2{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1.1;}
+
+  .storm-scale{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .scale-row{display:grid; grid-template-columns:180px 1fr 120px; align-items:center; padding:22px 26px; border-bottom:1px solid var(--line); gap:20px;}
+  .scale-row:last-child{border-bottom:none;}
+  .scale-row .cat{font-family:var(--display); font-size:1rem; text-transform:uppercase; letter-spacing:0.02em;}
+  .scale-row .desc{color:var(--muted); font-size:0.88rem;}
+  .scale-row .lvl{font-family:var(--mono); font-size:0.78rem; text-align:right; color:var(--volt);}
+  .meter-bg{height:6px; background:var(--line); border-radius:3px; overflow:hidden; margin-top:8px;}
+  .meter{height:100%; background:linear-gradient(90deg, var(--violet), var(--volt));}
+
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .card{background:var(--storm-2); border:1px solid var(--line); border-radius:12px; padding:30px;}
+  .card .n{font-family:var(--mono); color:var(--volt); font-size:0.8rem; margin-bottom:18px; display:block;}
+  .card h3{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:1.15rem; margin-bottom:10px; letter-spacing:0.01em;}
+  .card p{color:var(--muted); font-size:0.9rem;}
+
+  .quote-block{background:linear-gradient(135deg, var(--violet-deep), var(--storm-2)); border-radius:20px; padding:70px 56px; margin:0 32px;}
+  .quote-block .wrap{padding:0; max-width:none;}
+  .quote-block blockquote{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(1.5rem,2.8vw,2.1rem); max-width:800px; line-height:1.25;}
+  .quote-block blockquote .v{color:var(--volt);}
+  .quote-block cite{display:block; margin-top:26px; font-style:normal; font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em;}
+
+  .cta-section{text-align:center; padding:110px 0;}
+  .cta-section h2{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(2.2rem,5vw,3.4rem); margin-bottom:26px; line-height:1.05;}
+  .cta-section h2 .v{color:var(--volt);}
+  .cta-section .btn-lg{display:inline-block;}
+
+  footer{padding:44px 0; display:flex; justify-content:space-between; font-size:0.85rem; color:var(--muted); border-top:1px solid var(--line);}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+    .band-inner{grid-template-columns:repeat(2,1fr); row-gap:20px;}
+    .band-item:nth-child(2){border-right:none;}
+    .scale-row{grid-template-columns:1fr; text-align:left; gap:8px;}
+    .scale-row .lvl{text-align:left;}
+    .grid3{grid-template-columns:1fr;}
+    .quote-block{margin:0 16px; padding:44px 28px;}
+    footer{flex-direction:column; gap:12px; text-align:center;}
+  }
+</style>
+</head>
+<body>
+<div class="static-bg"></div>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#"><span class="bolt">⚡</span>SEOSTORMBOOST</a>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#scale">Storm Scale</a>
+        <a href="#results">Results</a>
+      </div>
+      <a class="btn-primary" href="#contact">Get Storm-Ready</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div>
+      <div class="badge">⚡ Traffic surges tracked live</div>
+      <h1>Rankings don't rise.<span class="strike">They strike.</span></h1>
+      <p>SEOStormBoost engineers sudden, sustained traffic surges — technical fixes, content, and links deployed in one coordinated push instead of a slow drip over 18 months.</p>
+      <div class="hero-ctas">
+        <a class="btn-lg" href="#contact">Start your surge</a>
+        <a class="link-arrow" href="#results">See real surges →</a>
+      </div>
+    </div>
+    <div class="bolt-card">
+      <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="voltgrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F4D035"/>
+            <stop offset="1" stop-color="#7C4DFF"/>
+          </linearGradient>
+        </defs>
+        <g opacity="0.5" stroke="#A7A9B8" stroke-width="1">
+          <ellipse cx="210" cy="90" rx="150" ry="42" fill="#1B1E2B"/>
+          <ellipse cx="140" cy="80" rx="80" ry="32" fill="#1B1E2B"/>
+          <ellipse cx="290" cy="85" rx="90" ry="34" fill="#1B1E2B"/>
+        </g>
+        <polygon points="235,120 175,260 215,260 190,400 300,220 250,220 285,120"
+          fill="url(#voltgrad)"/>
+        <polyline points="60,420 120,390 160,340 210,300 260,250 320,180 370,110"
+          fill="none" stroke="#F4F2EC" stroke-width="2.5" stroke-dasharray="1 8" stroke-linecap="round" opacity="0.6"/>
+        <circle cx="370" cy="110" r="6" fill="#F4D035"/>
+        <text x="300" y="450" font-family="IBM Plex Mono" font-size="12" fill="#A7A9B8">TRAFFIC SURGE — LIVE</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="band" id="results">
+    <div class="wrap band-inner">
+      <div class="band-item"><b>412%</b><span>Avg. Traffic Surge</span></div>
+      <div class="band-item"><b>30 days</b><span>To First Movement</span></div>
+      <div class="band-item"><b>190+</b><span>Storms Launched</span></div>
+      <div class="band-item"><b>4.9/5</b><span>Client Rating</span></div>
+    </div>
+  </div>
+
+  <section class="section wrap" id="services">
+    <div class="section-head">
+      <span class="tag">What gets deployed</span>
+      <h2>Three fronts, one coordinated storm.</h2>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <span class="n">FRONT 01</span>
+        <h3>Technical Strike</h3>
+        <p>Crawl, speed, and indexing issues fixed in the first two weeks — the blockers most agencies never touch.</p>
+      </div>
+      <div class="card">
+        <span class="n">FRONT 02</span>
+        <h3>Content Surge</h3>
+        <p>A batch of high-intent pages built and shipped together, not trickled out one post a month.</p>
+      </div>
+      <div class="card">
+        <span class="n">FRONT 03</span>
+        <h3>Authority Boost</h3>
+        <p>Targeted link acquisition and digital PR timed to land while your new content is fresh.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="scale">
+    <div class="section-head">
+      <span class="tag">The Storm Scale</span>
+      <h2>How intense does your campaign need to be?</h2>
+    </div>
+    <div class="storm-scale">
+      <div class="scale-row">
+        <div class="cat">Drizzle</div>
+        <div class="desc">Light technical cleanup for sites with a solid foundation already.<div class="meter-bg"><div class="meter" style="width:25%"></div></div></div>
+        <div class="lvl">LOW</div>
+      </div>
+      <div class="scale-row">
+        <div class="cat">Squall</div>
+        <div class="desc">Content and on-page fixes for sites stuck flat for 6+ months.<div class="meter-bg"><div class="meter" style="width:55%"></div></div></div>
+        <div class="lvl">MODERATE</div>
+      </div>
+      <div class="scale-row">
+        <div class="cat">Storm</div>
+        <div class="desc">Full technical, content, and authority push for sites losing ground to competitors.<div class="meter-bg"><div class="meter" style="width:80%"></div></div></div>
+        <div class="lvl">HIGH</div>
+      </div>
+      <div class="scale-row">
+        <div class="cat">Hurricane</div>
+        <div class="desc">Site-wide rebuild and relaunch for domains recovering from a major drop.<div class="meter-bg"><div class="meter" style="width:100%"></div></div></div>
+        <div class="lvl">SEVERE</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote-block">
+    <div class="wrap">
+      <blockquote>"Six weeks in, our organic traffic <span class="v">tripled</span> — and it wasn't a fluke, it held."</blockquote>
+      <cite>— Head of Marketing, Home Services Company</cite>
+    </div>
+  </div>
+
+  <section class="cta-section wrap" id="contact">
+    <h2>Ready for your <span class="v">surge</span>?</h2>
+    <a class="btn-lg" href="mailto:launch@seostormboost.site">Get your free storm assessment</a>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 SEOStormBoost</span>
+  <span>seostormboost.site</span>
+</footer>
+</body>
+</html>
